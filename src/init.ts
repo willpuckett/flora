@@ -2,8 +2,7 @@ import { decompress } from 'https://deno.land/x/zip@v1.2.5/mod.ts'
 
 export const init = async () => {
   const resp = await fetch(
-    'https://github.com/willpuckett/flora/raw/main/.init.zip',
-    // 'https://deno.land/x/flora/.init.zip',
+    'https://deno.land/x/flora/.init.zip',
   )
   if (!resp.ok) {
     throw new Deno.errors.BadResource(
