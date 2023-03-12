@@ -1,0 +1,15 @@
+{
+  "importMap": "./import_map.json",
+  "fmt": {
+    "options": {
+      "singleQuote": true,
+      "semiColons": false
+    }
+  },
+  "tasks": {
+    "removeBareImports": "deno run --allow-all --no-check https://deno.land/x/import_maps_codemod@0.1.1/mod.ts remove",
+    "restoreBareImports": "deno run --allow-all --no-check https://deno.land/x/import_maps_codemod@0.1.1/mod.ts add",
+    "updateImports": "deno run -A https://deno.land/x/udd/main.ts import_map.json",
+    "flora": "deno run -A main.ts"
+  }
+}

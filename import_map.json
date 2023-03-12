@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "graphql-request": "npm:graphql-request",
+    "graphql-request/dist/types.dom": "npm:graphql-request/dist/types.dom",
+    "graphql-tag": "https://esm.sh/graphql-tag@2.12.6"
+  }
+}

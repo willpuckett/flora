@@ -1,7 +1,0 @@
-// Delete all Collections
-Foreach(
-  Paginate(Collections(), { size: 100000 }),
-  Lambda("ref",
-    Delete(Var("ref"))
-  )
-)

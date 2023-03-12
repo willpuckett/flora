@@ -1,8 +1,0 @@
-Query(
-  Lambda(
-    ['email', 'password'],
-    Login(Match(Index('unique_User_email'), Var('email')), {
-      password: Var('password')
-    })
-  )
-)

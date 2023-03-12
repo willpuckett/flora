@@ -1,7 +1,0 @@
-// Delete all Roles
-Foreach(
-  Paginate(Roles(), { size: 100000 }),
-  Lambda("ref",
-    Delete(Var("ref"))
-  )
-)

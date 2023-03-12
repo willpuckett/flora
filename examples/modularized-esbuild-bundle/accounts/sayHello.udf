@@ -1,3 +1,0 @@
-Query(Lambda(["name"],
-  Concat(["Hello ", Var("name")])
-))

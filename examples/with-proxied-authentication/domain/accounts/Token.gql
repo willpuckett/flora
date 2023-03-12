@@ -1,4 +1,0 @@
-type Token @embedded {
-  instance: User!
-  secret: String!
-}
