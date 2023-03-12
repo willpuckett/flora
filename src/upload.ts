@@ -25,6 +25,9 @@ export const uploadAll = async (
   if (ops.delete('indexes')) {
     await uploadGroup(new Set(['indexes']))
   }
+  if (ops.delete('roles')) {
+    await uploadGroup(new Set(['roles']))
+  }
   await uploadGroup(ops)
 }
 
