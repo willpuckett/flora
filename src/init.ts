@@ -1,4 +1,5 @@
 import { decompress } from 'https://deno.land/x/zip@v1.2.5/mod.ts'
+import * as path from 'https://deno.land/std@0.178.0/path/mod.ts'
 
 export const init = async () => {
   const resp = await fetch(
@@ -14,12 +15,13 @@ export const init = async () => {
     )
   }
 
-  const file = await Deno.open('.init.zip', { truncate: true, write: true })
+  const zipPath = path.join(Deno.cwd(), '.init.zip')
+  const file = await Deno.open(zipPath, { truncate: true, write: true })
   await resp.body
     // Would .pipeThrough() work here somehow?
     // .pipeThrough(new DecompressionStream("zip"))
     .pipeTo(file.writable)
   file.close()
-  await decompress('.init.zip')
-  Deno.remove('.init.zip')
+  await decompress(zipPath)
+  Deno.remove(zipPath)
 }
