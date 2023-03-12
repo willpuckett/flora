@@ -15,13 +15,15 @@ export const init = async () => {
     )
   }
 
-  const zipPath = path.join(Deno.cwd(), '.init.zip')
-  const file = await Deno.open(zipPath, { truncate: true, write: true })
+  // Would .pipeThrough() work here somehow?
+  // .pipeThrough(new DecompressionStream("zip"))
+
+  const zipPath = path.join(Deno.cwd(), 'flora.zip')
+  const file = await Deno.open(zipPath, { createNew: true, write: true })
+  console.log(zipPath, file)
   await resp.body
-    // Would .pipeThrough() work here somehow?
-    // .pipeThrough(new DecompressionStream("zip"))
     .pipeTo(file.writable)
-  file.close()
+  // file.close()
   await decompress(zipPath)
   Deno.remove(zipPath)
 }
